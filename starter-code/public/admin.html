@@ -10,11 +10,10 @@
     <link rel="stylesheet" href="/styles/layout.css">
     <link rel="stylesheet" href="/styles/modules.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
-    <!-- TODO: Setup a template for each row of the Author Stats section of this page: -->
-    <script id="stats-template">
-    <h6>Total Articles</h6>
+    <!-- DONE: Setup a template for each row of the Author Stats section of this page: -->
+    <script id="stats-template" type="text/x-handlebars-template">
+      <li><strong>{{name}}:</strong> {{wordCount}} words written</li>
     </script>
-
   </head>
   <body>
     <header class="site-header clearfix">

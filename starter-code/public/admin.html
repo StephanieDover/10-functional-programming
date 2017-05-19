@@ -10,11 +10,10 @@
     <link rel="stylesheet" href="/styles/layout.css">
     <link rel="stylesheet" href="/styles/modules.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
-    <!-- TODO: Setup a template for each row of the Author Stats section of this page: -->
-    <script id="stats-template">
-    <h6>Total Articles</h6>
+    <!-- DONE: Setup a template for each row of the Author Stats section of this page: -->
+    <script id="stats-template" type="text/x-handlebars-template">
+      <li><strong>{{name}}:</strong> {{wordCount}} words written</li>
     </script>
-
   </head>
   <body>
     <header class="site-header clearfix">
@@ -52,11 +51,11 @@
     <script src="/vendor/scripts/handlebars.js"></script>
     <script src="/scripts/article.js"></script>
     <script src="/scripts/articleView.js"></script>
-    <!-- TODO: Due to changes in article.js and articleView.js to attach their interior objects to a global 'app' object, we need to make changes to the contents of the following <script> tag: -->
+    <!-- DONE: Due to changes in article.js and articleView.js to attach their interior objects to a global 'app' object, we need to make changes to the contents of the following <script> tag: -->
     <script>
-      // TODO: After we fetch and load all the articles, what view function do we want to run next?
+      // DONE: After we fetch and load all the articles, what view function do we want to run next?
       // Let's pass in a callback function, to determine what happens AFTER all articles are loaded.
-      Article.fetchAll();
+      app.Article.fetchAll(articleView.initAdminPage);
     </script>
   </body>
 </html>

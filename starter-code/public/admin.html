@@ -51,11 +51,8 @@
     <script src="/vendor/scripts/handlebars.js"></script>
     <script src="/scripts/article.js"></script>
     <script src="/scripts/articleView.js"></script>
-    <!-- DONE: Due to changes in article.js and articleView.js to attach their interior objects to a global 'app' object, we need to make changes to the contents of the following <script> tag: -->
     <script>
-      // DONE: After we fetch and load all the articles, what view function do we want to run next?
-      // Let's pass in a callback function, to determine what happens AFTER all articles are loaded.
-      app.Article.fetchAll(articleView.initAdminPage);
+      app.Article.fetchAll(app.articleView.initAdminPage);
     </script>
   </body>
 </html>

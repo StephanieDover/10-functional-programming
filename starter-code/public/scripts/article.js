@@ -27,11 +27,10 @@ var app = app || {};
 
   Article.fetchAll = callback => {
     $.get('/articles')
-    .then(
-      results => {
-        Article.loadAll(results);
-        callback();
-      })
+    .then(results => {
+      Article.loadAll(results);
+      callback();
+    })
   };
 
   Article.numWordsAll = () => {
@@ -45,17 +44,16 @@ var app = app || {};
 
   Article.allAuthors = () => {
     return Article.all.map((article) => {
-
       return article.author
     })
     .reduce((acc, current) => {
       if (acc.indexOf(current) === -1 ) {
         return acc.concat(current)
-      }else { return acc;
+      }else {
+        return acc;
       }
     }, [])
   };
-
 
   Article.numWordsByAuthor = () => {
     return Article.allAuthors().map(author => {
@@ -63,12 +61,13 @@ var app = app || {};
         name: author,
         wordCount: Article.all.filter(function (article) {
           return article.author === author
-        }).map(a => {
+        })
+        .map(a => {
           return a.body.split(' ').length
         })
-          .reduce((acc, cur) => {
-            return acc + cur;
-          }, 0)
+        .reduce((acc, cur) => {
+          return acc + cur;
+        }, 0)
       }
     });
   };
